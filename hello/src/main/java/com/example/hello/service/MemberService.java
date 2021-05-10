@@ -2,11 +2,13 @@ package com.example.hello.service;
 
 import com.example.hello.domain.Member;
 import com.example.hello.repository.MemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 //@Service
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
