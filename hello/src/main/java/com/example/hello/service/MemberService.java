@@ -20,20 +20,11 @@ public class MemberService {
 
     // 회원가입
     public Long join(Member member) {
-        long start = System.currentTimeMillis();
+        // 중복 이름 불가
+        validateDuplicateMember(member);
 
-        try {
-            // 중복 이름 불가
-            validateDuplicateMember(member);
-
-            memberRepository.save(member);
-            return member.getId();
-        } finally {
-            long end = System.currentTimeMillis();
-            long timeMs = end - start;
-            System.out.println("join = " + timeMs + "ms");
-            
-        }
+        memberRepository.save(member);
+        return member.getId();
     }
 
     public List<Member> findMembers() {
