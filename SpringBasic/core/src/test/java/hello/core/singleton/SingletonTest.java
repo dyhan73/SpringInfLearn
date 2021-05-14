@@ -22,4 +22,17 @@ public class SingletonTest {
         Assertions.assertThat(memberService1).isNotSameAs(memberService2);
     }
 
+    @Test
+    @DisplayName("싱글톤 객체 사용")
+    void singletonServiceTest() {
+//        SingletonService singletonService = new SingletonService();
+        SingletonService singletonService = SingletonService.getInstance();
+        SingletonService singletonService2 = SingletonService.getInstance();
+
+        System.out.println("singletonService = " + singletonService);
+        System.out.println("singletonService2 = " + singletonService2);
+
+        Assertions.assertThat(singletonService).isSameAs(singletonService2);
+
+    }
 }
